@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>exple de formulaire</title>
+  </head>
+  <body>
+
+
+<form name="form" class="css-form" novalidate>
+  <div>
+    <label>
+      Overwritten Email:
+      <input type="email" ng-model="myEmail" overwrite-email name="overwrittenEmail" />
+    </label>
+    <span ng-show="form.overwrittenEmail.$error.email">This email format is invalid!</span><br>
+    Model: {{myEmail}}
+    </div>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+
+<script type="text/javascript">
+
+var app = angular.module('form-example-modify-validators', []);
+
+app.directive('overwriteEmail', function() {
+  var EMAIL_REGEXP = /^[a-z0-9!#$%&'*+/=?^_`{|}~.-]+@example\.com$/i;
+
+  return {
+    require: '?ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+      // only apply the validator if ngModel is present and AngularJS has added the email validator
+      if (ctrl && ctrl.$validators.email) {
+
+        // this will overwrite the default AngularJS email validator
+        ctrl.$validators.email = function(modelValue) {
+          return ctrl.$isEmpty(modelValue) || EMAIL_REGEXP.test(modelValue);
+        };
+      }
+    }
+  };
+});
+
+
+
+</script>
+<!--exemple code school  -->
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="list-group" ng-controller="StoreController as store">
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">– an Angular store –</h2>
+    </header>
+    <div class="list-group-item" ng-repeat="product in store.products">
+      <h3>
+        {{product.name}}
+        <em class="pull-right">{{product.price | currency}}</em>
+      </h3>
+      <section ng-show="product.images.length">
+        <img ng-src="{{product.images[0]}}" />
+        <ul class="list-inline thumbs">
+          <li class="thumbnail" ng-repeat="image in product.images">
+            <img ng-src="{{image}}" />
+          </li>
+        </ul>
+      </section>
+
+      <section class="tab"ng-controller ="TabController as tab">
+        <ul class="nav nav-pills">
+          <li ng-class="{ active: tab.isset(1)}">
+            <a href ng-click="tab.setTab(1)">Description</a></li>
+          <li ng-class="{ active: tab.isset(2)}">
+            <a href ng-click="tab.setTab(2)">Specs</a></li>
+          <li ng-class="{ active: tab.isset(3)}">
+            <a href ng-click="tab.setTab(3)">Reviews</a></li>
+        </ul>
+        <div>
+          <h4>Description</h4>
+          <blockquote></blockquote>
+        </div>
+        <div>
+          <h4>Specs</h4>
+          <blockquote>Shine: </blockquote>
+        </div>
+        <div>
+          <h4>Reviews</h4>
+          <blockquote></blockquote>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
+
+
+  </body>
+</html>

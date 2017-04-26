@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Ma première page</title>
+</head>
+<body>
+	<div ng-controller="MainCtrl">
+		<h1>{{title}}</h1>
+		<p>{{resultat}}</p>
+		<!-- ; -->
+		<!--ng-model est une directive liée à un controller la dependance $scope.prenom ="" permet au controller d'exposer la vue -->
+		<input type="text" ng-model="name" placeholder="Votre nom">
+		<input type="text" ng-model="prenom" placeholder="Votre prenom"><br>
+		<p>Bonjour {{name}} {{prenom}}</p>
+		<h1>Hello {{name}}</h1>
+		<input type="text" ng-model="presentation" placeholder="pouvez vous presenter?">
+
+     <p>{{presentation}}</p>
+
+		<!-- <p>votre prenom est {{prenom}}</p> -->
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>

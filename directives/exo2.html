@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>liste de voitures</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script src="voiture.js"></script>
+  </head>
+  <body ng-app ="myApp" ng-controller="myCtrl">
+    <div  ng-repeat ="voiture in voitures | orderBy :'marque'">
+    <p>{{voiture.marque +" "+ voiture.couleur}}</p> <br>
+    <!-- {{test}} -->
+    <!-- <p ng-repeat ="voiture in voitures">{{voiture.marque}}</p> -->
+    <!-- <ul ng-repeat="voiture in voitures | orderBy :'marque'">
+      <li> {{voiture.marque}}</li>
+    </ul> -->
+    <!-- <table  border="1">
+<tr ng-repeat="voiture in voitures">
+  <td>{{voiture.marque}}</td>
+  <td>{{voiture.couleur}}</td>
+</tr>
+</table> -->
+
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="schoolApp">
+  <head>
+    <meta charset="utf-8">
+    <title>les variables</title>
+    <!-- <script src="https://ajax.coogleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+
+    <!-- <script type= src="variable.js"></script> -->
+    <script  src="variable.js">
+
+    </script>
+  </head>
+  <body ng-controller="myCtrl">
+    <!--Dans ,e fichier html fourni, afficher la variable **firstName** dans la **div**.
+
+  Exercice 2
+
+ D!ns le fichier html fourni, afficher toutes les variables.
+
+  Exercice 3
+
+ Dans le fichier html fourni, afficher toutes les variables dans la même paire d'accolade.
+
+  Exercice 4
+
+ Dans le fichier html fourni, afficher toutes les variables aux bons emplacements.
+
+  Exercice 5
+
+ Dans le fichier html fourni, afficher toutes les variables dans une phrase.
+0 comments on commit 5cf111e  -->
+    <div>
+      {{firstName}} <br>
+      {{lastName}} <br>
+      {{age}}<br>
+      {{grade}}
+      {{firstName +" "+ lastName+" " +age+" " +grade}}
+    </div>
+    <!-- exo4 -->
+    <div>
+      Prénom :  {{firstName}}
+    </div>
+    <div>
+      Nom :{{lastName}}
+    </div>
+    <div>
+      Âge :{{age}}
+    </div>
+    <div>
+      Classe :{{grade}}
+    </div>
+    <p>{{firstName +" "+ lastName +" " + "est agé de " +age+ " " +" est en classe de" +" " +grade}}</p>
+
+</body>
+</html>
